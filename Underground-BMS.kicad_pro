@@ -370,7 +370,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Think-City-BMS.kicad_pro",
+    "filename": "Underground-BMS.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -456,16 +456,52 @@
       ""
     ],
     [
+      "291be11f-562b-493e-8eb0-e748775eed57",
+      "BMS-Main"
+    ],
+    [
+      "249c60e5-851a-41de-9244-0b1b37349348",
+      "CAN-Interface"
+    ],
+    [
+      "7b61fa95-7a9e-4b78-acc4-a3fb36505eb5",
+      "ESP-Control"
+    ],
+    [
+      "770fb8c6-1b30-4eb3-8a91-9529085c4f1c",
+      "Power-Supply"
+    ],
+    [
+      "35634533-6645-4c4a-9e5c-2f43c1ab9439",
+      "Active-Balancer"
+    ],
+    [
+      "4861ac2f-8d8c-4811-9567-2a97a88d31e0",
+      "ESP-Prog"
+    ],
+    [
+      "96da8b15-52ee-4cbb-aa8e-cca42ca29658",
+      "RS485-Interface"
+    ],
+    [
+      "c1234b70-b11a-464a-a2a7-4ee0398ec616",
+      "Protection"
+    ],
+    [
+      "5ae06425-190a-4ad3-927f-46caaeafb6e3",
+      "Current-Sense"
+    ],
+    [
+      "0a4cadd1-7a7f-4e51-9572-f14cff985c42",
+      "CAN-Interface"
+    ],
+    [
       "5d63735a-5c5b-4e56-8440-af74262e89e5",
       "Power-Supply"
     ],
     [
       "74b6e11d-05e7-4115-8499-eeed96bf0066",
       "ESP-Control"
-    ],
-    [
-      "0a4cadd1-7a7f-4e51-9572-f14cff985c42",
-      "CAN-Interface"
     ]
   ],
   "text_variables": {}
