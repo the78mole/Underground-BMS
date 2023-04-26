@@ -1,0 +1,2164 @@
+bqSBB Version 1.3.101 Release Notes
+----------------------------------
+Calibration updates for BQ76942 and BQ76952 A3
+Removed support for parameter view
+
+
+bqSBB Version 1.3.100 Release Notes
+----------------------------------
+SPI Master Configuration for bq769x2:  Remove SPIMasterCfg class and keep
+EV2400 configuration variable in SDKLib.
+Resolved a problem displaying some delays in the bq27z746 calibration plugin
+
+
+bqSBB Version 1.3.99 Release Notes
+----------------------------------
+Resolved fatal memory corruption when programming chemistry from an external file.
+Add SPI communication protocol to support bq76952 and bq76942 -A2 silcon. EV2400 firmware
+version 0.30 or later required for SPI.
+
+
+bqSBB Version 1.3.98 Release Notes
+----------------------------------
+Commands and Data Memory: Fix firmware seal check and base address not setup for new device during dashboard auto redetection.  
+Calibration: Added protector calibration support for the bq27z746
+
+
+bqSBB Version 1.3.97 Release Notes
+----------------------------------
+Resolved a problem parsing larger firmware build numbers.
+Resolved a problem with processing offsets in GMFS export for some older gauges.
+
+
+bqSBB Version 1.3.96 Release Notes
+----------------------------------
+Fixed issue with charger plugin where controls are duplicated after closing and reopening plugin.
+
+
+bqSBB Version 1.3.95 Release Notes
+----------------------------------
+Data Memory: Fix Seal check blocking operation with bq769x2 -A0 devices.
+
+
+bqSBB Version 1.3.94 Release Notes
+----------------------------------
+Data Memory: Increase delay between disable sleep and enter config update mode to 1 second for bq769x2 -A1 devices. 
+
+
+bqSBB Version 1.3.93 Release Notes
+----------------------------------
+Data Memory and Registers: Set hover htmlhelp dialog lifetime to 60 seconds.
+
+Data Memory: Send disable sleep before sending config update for bq769x2-A1 devices.
+
+Add support to set EV2400 I2C clock frequency in kHz.
+
+Registers:  Add support for html tool tips and basic parameter register view.
+
+Data Memory:  Add support for html tooltips and basic parameter register view. 
+
+Calibration: Fix sign of voltage offsets in voltage gain calculations for bq769x2 
+
+Autodetect: Implements new autodetect algorithm for SMB 100KHz vs 400KHz and automatically changes EV2400 to 400KHz when supported. EV2300 does not support true 400KHz, therefore always 100KHz when using EV2300.
+
+
+bqSBB Version 1.3.92 Release Notes
+----------------------------------
+Autodetect: Added support for SN27541-P1  by supporting target address 0x16 for I2C
+Firmware plugin: Updated FS file generation conditions
+
+bqSBB Version 1.3.91 Release Notes
+----------------------------------
+Golden Image:
+Added support for SN27541-P1 in golden image.
+
+Flash Stream bq76922:
+Added ConfigUpdate commands for bq76922. Target address uses detected I2C address.
+
+DataMemory:
+Updated bq76922 Enter and Exit ConfigUpdate delays to match A0 silicon.  
+ConfigUpdate Mode is only entered when writing block to data memory. 
+Fix silent exception when using Flag Display for bq76922.
+
+AutoDetect:
+Fix bq76922 using I2C target address of 0xAA in some cases when 
+target device is manually selected. 
+Fix bq76922 Flash Stream and Command Sequence plugins from 
+changing the state of Dashboard Auto Refresh on exit. 
+
+
+bqSBB Version 1.3.90 Release Notes
+----------------------------------
+Firmware: Resolved an SMB FS programming excpetion on some platforms
+
+bqSBB Version 1.3.89 Release Notes
+----------------------------------
+Dashboard: Fix cascading dashboard error. Call command handler service for manual target selection dialog from UI thread in AutoDetect to prevent null pointer exception when called from Dashboard job thread.  This opened a dialog with internal error in dashboard referring to a null pointer exception.
+
+Commands: 
+Add EV2300 Unseal support for bq40z651.
+ 
+AutoDetect:
+Allow a gauge bqz that autodetects to be prefixed with Monitor.
+
+
+bqSBB Version 1.3.88 Build 2 Release Notes
+----------------------------------
+Commands:
+Add EV2300 communication adapter support for SN28z651 unseal methods missing in previous build.  
+
+
+bqSBB Version 1.3.88 Release Notes
+----------------------------------
+Commands:
+Add support for SN28z651 unseal methods used for Seal and Unseal_Full_Access buttons.
+
+
+bqSBB Version 1.3.87 Release Notes
+----------------------------------
+DataFlash:
+Updates to FS file export support for Maximo2
+
+Programming:
+Updates to FS file programming support for Maximo2
+
+Calibration:
+Updates to the bq769x2 calibration plugin
+
+CommandSequence:
+Added a new command sequence plugin for gauges
+
+Dashboard:
+Updates to seal state detection for bq9xxx platforms
+
+LearningCycle:
+Resolved possible runtime exceptions in the learning cycle plugin
+Refactoring of the cycle status control
+
+GPCCycle:
+Resolved possible runtime exceptions in the learning cycle plugin
+Refactoring of the cycle status control
+Refactoring of the cycle step control
+Refactoring and simplification of the GPC cycle algorithm
+
+Backend:
+Updates to adapter name handling for the EV2300
+Updates to the comm manager to support more active instances
+Added support for new EV2400 enhanced mode commands
+
+bq79606:
+Added support for stack read commands
+Several minor user interface updates to the bq79606 plugins
+
+Chargers:
+Resolved register programming issues on the bq25887
+
+Miscellaneous:
+Several cosmetic user interface enhancements and updates
+Top-level plugin re-architecture for long-term user interface enhancements
+Minor updates to the bqStudio status bar layout
+
+Fixed Jira Issues:
+BQSTUDIO-305
+BQSTUDIO-317
+BQSTUDIO-353
+BQSTUDIO-381
+BQSTUDIO-420
+BQSTUDIO-426
+BQSTUDIO-553
+BQSTUDIO-586
+BQSTUDIO-613
+BQSTUDIO-624
+
+
+bqSBB Version 1.3.86 Release Notes
+----------------------------------
+Reverted chemistry changes for hex ID support
+
+Programming:
+Resolved possible issue with programming error
+
+DataFlash:
+Resolved issue of negative floats not accepted
+
+Commands:
+Resolved issue with seal/unseal
+
+
+bqSBB Version 1.3.85 Release Notes
+---------------------------------
+Chemistry Programming:
+Change internal structures to store chemistry IDs in hexadecimal.
+ChemUpdater database version 638 and later support hexadecimal chemistry IDs.   
+
+Display which chemsitry IDs support Turbo Mode on mixed chemistry screen.
+
+Advanced Comm SMB:
+Remove requirement that each byte of hexadecimal string in Write Block must be separated by a space. 
+
+Calibration:
+Updated calibration algorithms to utilize double precision floating point calculations. 
+Added support for bq27541V200 HH_Firmware calibration
+
+Registers:
+Added support for MAC commands on additional gauge platforms
+
+bq79606:
+Removed some ADC frequency options that are not currently supported by the hardware
+Disabled default reading of communication status table during launch
+Resolved a problem with broadcast read support on the scripting plugin
+Updated auto addressing algorithm to configure stack devices
+Several minor user interface updates
+
+bq25150:
+Register where one bit changes value of other registers
+Support for 16 Bits ADC read conversion
+
+bq25887:
+Added support for cell balancing in charger.xml for manual mode control in field view per spec
+
+Chargers:
+Default View support for 8 and 16 bits registers together
+
+
+bqSBB Version 1.3.84 Release Notes
+---------------------------------
+bq79606:
+Added unmask support to the faults plugin
+
+
+bqSBB Version 1.3.83 Release Notes
+---------------------------------
+bq79606:
+Resolved a problem with updating the log during script execution
+
+Dashboard:
+Update to scroll bar layout to support low resolution displays
+
+
+bqSBB Version 1.3.82 Release Notes
+---------------------------------
+Chemistry:
+Allow programming of chemistry IDs that do not support Turbo Mode 2 into
+a gauge that supports Turbo Mode 2.  A checkbox at the top of the chemistry
+screen displays additional chemistries when checked when bqStudio is connected to a TM2 gauge. 
+
+General:
+Updates to the eclipse configuration to prevent workspace corruption
+Enhancements to SMBus address scanning during hardware enumeration
+
+DataGraph:
+Fixed minor problem with plotting points in the datagraph plugin
+
+Authentication:
+Added SHA1/ECC programming and authentication support for the bq40z80
+
+bq79606:
+Resolved a problem with read transactions of 128 bytes
+Updated the translation log viewer in the advanced comm plugin to support large read payloads
+Updated the translation log viewer in the monitor scripting plugin to support large read payloads
+User interface updates to the communication control plugin
+Improved error messages in the FTDI log when the response queue and FTDI hardware is reset
+
+
+bqSBB Version 1.3.81 Release Notes
+---------------------------------
+Calibration:
+Add support for bq40z80
+
+Registers:
+Updates to SBS logging functionality to improve performance
+
+bq79606:
+Added a CRC calculator to the scripting plugin
+Added a stop button to the script execution plugin
+Updates to the communication control plugin user interface
+Enhancements to the FTDI backend response queue
+Adjustments to communication reset timing
+Updates to the baud rate detection algorithm
+
+
+bqSBB Version 1.3.80 Release Notes
+---------------------------------
+Calibration:
+Added board and cc offset calibration for the bq9035
+
+SHA Authentication:
+Change references in tool bar and menu from Authentication to
+SHA Authentication
+
+Programming:
+Change operations writing to address 0 to read/modify/write. 
+
+Backend:
+Added additional debug log messages for pipe handling
+
+
+bqSBB Version 1.3.79 Release Notes
+---------------------------------
+Data Ram and Data Memory:
+Add bq27z561 HDQ support
+
+Libraries:
+Add logging of some errors
+
+bq79606:
+Improved backend robustness when the stack topology changes
+
+Firmware:
+Resolved a problem that caused firmware updates to hang on some bq900x gauges
+
+
+bqSBB Version 1.3.78 Release Notes
+---------------------------------
+Programming:
+Fix bq27750 srec programming exception sending execute firmware command
+after failure. Add 20 msec delay before executing ROM. 
+
+Commands:
+Added Unseal and Full Access support for bq40z651
+
+Charger: 
+Added support for SN2600 charge parameters, watchdog reset, default view 
+change to better support 16bit Field View registers.
+Added support for non-contiguous mask bits in signed charger ADC registers
+
+Charger SN2600 Charge Control:
+Change minimum IBAT_TARGET current from 16mA to 0. 
+
+
+bqSBB Version 1.3.77 Release Notes
+---------------------------------
+
+ECC Authentication: 
+Change name to ECC Authentication
+
+Programming: 
+Fix two functions to return error code used in SMB and I2C_SMB
+programming 
+
+bq27z561:
+Authenctication:
+Added SHA-256 Authentication in Gauge/ROM Mode
+Removed SHA-1 Authentication
+
+GoldenImage:
+Added support for SREC, DFFS, BQFS, and GMFS export
+
+Programming:
+Added SREC and FS programming support
+Improved error report for FS file programming
+
+Calibration:
+Max voltage threshold increased to 6000 mV
+Current calibration scaled by factor of 4
+Removed Batt and Pack calibration feature
+
+bq79606:
+Added support for AUX_CELL configuration and measurement
+Several enhancements to plugin user interfaces
+
+Chargers:
+Added support for signed values in the ADC tab
+
+
+bqSBB Version 1.3.76 Release Notes
+---------------------------------
+Chemistry: 
+Increase number of chemIDs from 2000 to 3000
+
+
+bqSBB Version 1.3.75 Release Notes
+---------------------------------
+bq79606:
+Tuned the comm break algorithm for all baud rates
+Updated the baud rate detection algorithm to support the latest silicon
+
+Chemistry: 
+Updates to the MaxLife chemistry programming and cycle count
+
+Commands:
+Added support for SMB read word commands
+
+
+bqSBB Version 1.3.74 Release Notes
+---------------------------------
+Chemsitry: 
+Add 2 additional Ra tables to support bq9006.
+Allow option to program chemistry GPCRb file created on www.ti.com into multicell gauge when Turbo Mode 2 data is not available for chem ID.  
+
+
+bqSBB Version 1.3.73 Release Notes
+---------------------------------
+bq79606:
+Command sequence buttons can be assigned now after install
+Corrected basic handling of stack read support
+
+
+bqSBB Version 1.3.72 Release Notes
+---------------------------------
+Calibration:
+Add bq27320 v0.08 voltage and temperature data memory parameters
+to allow calibration of voltage and current. 
+
+
+bqSBB Version 1.3.71 Release Notes
+---------------------------------
+Calibration:
+Modified CC Gain handling specifically for the bq34210 for current calibration
+
+bq79606:
+Minor updates to auto addresing algorithm
+Temproarily disabled baud rate switching
+Several minor updates to bq79606 GUI plugins
+
+GPC Packager:
+Added the GPCPackager to Project Mode
+
+
+bqSBB Version 1.3.69 Release Notes
+---------------------------------
+Calibration: Add Battery and Pack Gain Scale Factor for bq9006
+Parameter Q&A: Support for decimal numbers like temperature
+
+bq79606:
+Handling Negative cell voltages
+Start ADC measurement in Continuous loop when Continuous Cell Conversions is not enabled
+Show Hex values always for configuration registers
+
+
+bqSBB Version 1.3.68 Release Notes
+---------------------------------
+bq9035:
+Added SHA-256 Authentication in Gauge Mode
+Multiply CapacityGain by factor of 4
+
+bq79606:
+Code Refactoring and Table Device Addresing fix
+General Enhancements to Auto Addressing and updated to communication timing
+
+
+bqSBB Version 1.3.67 Release Notes
+---------------------------------
+bq79606:
+Added a precision method of sending a wake pulse
+Added support for sending a sleep to active pulse
+Added support for sending communication break and reset pulses
+Enabled support for stack enumeration and auto addressing
+Enabled non-zero base addresses when auto addressing the stack
+Enabled baud rate detection and switching
+Added a comm status indicator to the comm control plugin
+
+
+bqSBB Version 1.3.66 Release Notes
+---------------------------------
+Resolved a problem with the read response queue for the bq79606
+
+
+bqSBB Version 1.3.65 Release Notes
+---------------------------------
+Initial release for bq79606 support
+
+
+bqSBB Version 1.3.64 Release Notes
+---------------------------------
+Release build of all libraries to support ToolsSDK release 
+
+GoldenImage:
+Updates to optimize GMFS export for new MAC interface for partial data cache rows
+
+
+bqSBB Version 1.3.63 Release Notes
+---------------------------------
+LearningCycle:
+Added support for the bq40z50-R2
+Minor updates to user interface and status reporting
+
+Programming:
+Resolved a problem with the execute firmware button for SMB_I2C mode
+
+Chargers: 
+Several enhancements to the user interface
+Multiple scroll bar support for better display scaling
+
+
+bqSBB Version 1.3.62 Release Notes
+---------------------------------
+
+Chargers: 
+Allow register export when multiple chargers are in use.
+
+
+bqSBB Version 1.3.61 Release Notes
+---------------------------------
+
+Chargers:
+Updated Charger_1_00-bq24780S.bqz to use SMB protocol
+Added support for simultaneous multiple charger access in the charger backend
+Added support for multiple instances of the charger view
+Resolved possible exceptions in the user interface
+
+Calibration:
+Resolved a problem with voltage calibration on the bq34110
+
+LearningCycle:
+Added graphical cycle status and cycle step reporting
+Added real time operation metrics to user interface
+Enhanced error handling and reporting
+
+GPCCycle:
+Added graphical cycle status and cycle step reporting
+Added real time operation metrics to user interface
+Added the ability to start specific GPC cycle configurations
+Enhanced error handling and reporting
+Updates to the user interface to allow more flexibility in display size
+
+GoldenImage:
+Added support for SREC, DFFS, BQFS, and GMFS export on the bq27750
+Resolved a problem with SREC export with partial instruction flash rows
+User interface enhancements to remove invalid export options
+
+Programming:
+Added SREC and FS programming support for the bq27750
+Resolved a problem with progress reporting during SREC programming
+
+Backend:
+Added support for larger packet sizes of 108 bytes on the EV2400 with firwmare 0.21 or greater
+
+
+bqSBB Version 1.3.60 Release Notes
+---------------------------------
+
+Registers:
+Resolved a possible null pointer exception when entering edit mode
+
+GoldenImage:
+Resolved a problem when exporting OT.FS files for the bq27220
+Added support for present OTP values that are not available in data memory
+Allow option to have unseal keys in OTFS and GMFS files
+
+DataMemory:
+Updated user intefrace handling and reporting of sealed state
+
+Watch:
+Removed commas at the end of lines in watch log
+
+Chargers:
+Fix SN2500 DC_Limiter1 and DC_Limiter2 values not displayed correctly in Field View
+
+Wireless Chargers:
+Created a new FOD workspace view to replace existing tool
+Major updates to the charger registers plugin
+Major updates to the charger commands plugin
+Major updates to the charger data graph plugin
+Updates to the charger FOD calibration plugin
+Added customized graphs for transmit/receive power and loss/threshold at launch
+Created a new FOPD telemetry plugin
+
+Backend:
+Added check seal keywords that describe gauge behavior to support bq34210 seal check MAC 0x54 endian change. 
+
+Golden Image: 
+Fix otfs file export setting private values to zero.
+Allow option to write custom unseal keys in created ot.fs and gm.fs file. 
+
+Resister:
+Remove manual control panel if used.
+
+Data Memory Screen:
+Fix bq27220 low address parameter value corruption when device is in unsealed state.  Also fixed low address values not able to change manually in Config Update Mode. 
+
+
+
+bqSBB Version 1.3.59 Release Notes
+---------------------------------
+
+LearningCycle:
+Resolved possible register read exceptions when using some certain gauges
+
+FieldProgrammer:
+Added support for configuration sections in the bqz container and the user interface
+Added support for loading and saving configuration files
+Enabled read support for sample devices
+
+SBS Data Graph:
+Added support for loading and saving graph configuration (Scaling/Format/Color) files
+
+
+bqSBB Version 1.3.58 Release Notes
+---------------------------------
+Added support for SN2500/Tigris 2
+
+
+bqSBB Version 1.3.57 Release Notes
+---------------------------------
+Authentication:
+Updates to support SHA-256 and ROM Mode authentication for the bq9035
+
+Chargers:
+Added support for EV2400 speed change
+Interrupt registers now reading event registers
+
+
+bqSBB Version 1.3.56 Release Notes
+---------------------------------
+Chemistry:
+Added MaxLife 2 chemistry support for bq40z40
+
+Chargers:
+Added support for interrupt mask register
+Added support for interrupt registers in single register view
+Added charger preference to change EV2400 I2C Clock speed
+
+GoldenImage:
+Added Multiple CEDV profile support for bq27220 OTP golden image generation
+Resolved a problem with CC Gain support in OTFS export on the bq27411-G1D
+
+
+bqSBB Version 1.3.55 Release Notes
+---------------------------------
+Chemistry:
+Updates to the Ra Table programming algorithm for the bq40z370
+
+LearningCycle:
+Added new learning cycle support for the bq40z370
+Added support for discharge termination using the FD bit when present
+Improved error messaging when using the new learning cycle
+
+bqSBB Version 1.3.54 Release Notes
+---------------------------------
+Chemistry:
+Updates to the chemistry programming algorithm for the bq35100
+
+Data Memory:
+Resolved a problem with writing to some parameters on the bq35100
+
+Chemisty:
+When programming multicell chemistry from Rb tweak file created on www.ti.com, 
+Q Min and Max Disqualification parameters are now programed with value from 
+chemistry table for ID specified in Rb tweak file. 
+
+
+bqSBB Version 1.3.53 Release Notes
+---------------------------------
+Several minor improvements to Eclipse application and perspectives
+Address possible runtime exceptions when switching between target classes
+
+Calibration:
+Added support for bq34110 multi cell calibration
+Updated calibration routines to support a new bq34z1xx calibration style
+Updated calibration routines to support the bq35100
+
+DataMemory:
+Resolved several rare errors that could occur when exporting gg.csv files
+
+Charger:
+Added charger Field View support for reading/writing bytes in big-endian format for 16 bit registers
+
+GoldenImage:
+Resolved a problem with ROM version verification for the bq34110
+
+Data Log:
+Resolved exception errors when using the data log with some newer gauges
+
+Graph:
+Resolved exception errors when using the data log with some newer gauges
+
+
+bqSBB Version 1.3.52 Release Notes
+---------------------------------
+Several minor improvements to Eclipse application and perspectives
+Resolved a problem when switching between target classes
+
+DataMemory:
+Resolved a problem writing to some DF parameters on the bq27220
+
+Chemistry:
+Resolved a scroll problem and a workspace-related error in the chemistry plugin
+
+Charger:
+Several minor improvments to view and perspective handling
+Added suppoprt for address based Referencing, multiple pages, and displaying 8 & 16 Bit Registers simultaneously
+Added support for the bq25870
+
+Calibration:
+Added CC Offset and Board Offset calibration for bq34z100 and bq27320
+
+GPC Cycle:
+Changed GPC cycle temperature configuration for all charge tasks to room temperature
+Updated instructions for the automated switching GPIOs for the learning and gpc cycle plugins
+
+GoldenImage:
+Improved handling of errors when reading the data memory or flash image in the golden image plugin
+
+bqSBB Version 1.3.51 Release Notes
+---------------------------------
+Updated Java dependencies to JRE 1.8
+Updated Eclipse to Mars 4.5.2
+
+Calibration:
+Added calibration support for the bq35100
+Added calibration support for the bq34110
+Added support for calibration up to 12S
+
+Charger:
+Enhancements to save charger registers file header
+Improved GUI handling of write register button
+Added continuous support for charger registers in bqSBB format
+Added support for register controls in multiple pages
+
+GoldenImage:
+Resolved a problem generating data for OTFS export on the bq27220
+Added support for OTFS device type and version checking for the bq27220
+Added GMFS export support for the bq27220
+
+GPC Cycle:
+Added a new plugin to direct the process of obtaining cycle logs for the GPC packager
+
+Added authentication key packager and programmer. 
+
+
+bqSBB Version 1.3.50 Release Notes
+---------------------------------
+
+Question and Answer: 
+Allow multiple lines of text defined in ui.xml in header. 
+
+GPC Packager:
+Added in bq27320. Allow import of external files following
+the format documented in help. 
+
+
+bqSBB Version 1.3.49 Release Notes
+---------------------------------
+
+Charger:
+Fixed a problem in with the watchdog timer in Field View overwriting the Watchdog register contents
+
+DataMemory:
+Updated GG.csv format to include quotations around the fields to improve Excel compatibility
+Added flexibility to input when editing hex parameters
+Improved the handling of editor popup placement when bqStudio is not maximized
+Corrected a problem with the displayed address for the bq27220
+
+Commands:
+Improved handling of unseal support with HDQ and when dashboard is disabled 
+
+Calibration:
+Added real-time measured feedback from the gauge
+Updates to support the latest bq27220 when claibrating voltage, temperature, and CC Offset
+
+Golden Image:
+Added feedback to the golden image plugin to indicate success or failure
+Added OTFS export support for the bq27220
+
+
+bqSBB Version 1.3.48 Release Notes
+---------------------------------
+
+Chemistry:
+Add chemistry programming of Turbo Mode 2 parameters for bq40370 
+Chemistry Updater database updated to version 472. 
+
+bq40z556:
+Auto detection support for the Alternate SMB address (in addition to the default address of 0x16) through Pop-up device selection
+
+
+bqSBB Version 1.3.47 Release Notes
+---------------------------------
+
+Communications: 
+Fixed function I2CLightReadBlock using test mode to return number of bytes read.
+Integrated several changes to support data flash access for the bq27220
+
+Commands:
+Resolved a problem with seal/unseal support on the bq27426
+
+Golden Image:
+Resolved a possible exception when exporting OTFS files on the bq27426
+Reduced GMFS delays for config update and writes for the bq8101 family
+
+Learning Cycle:
+Minor updates to the user interface text
+
+Charger: 
+Register export. Add header with time stamp.  Index numbers replaced with actual register names. Improve error messages. 
+
+Charger: 
+Display bqStudio version and bqz file name in use in shell title. 
+
+Communications:
+Log command channel name check failures in cm.log.txt. Do not return with an error.  
+
+Field Programmer:
+Added EEPROM field programming support for the bq77905
+
+FOD Resistor Calibration:
+Added FOD Resistor Calibration support for the bq50002
+
+
+bqSBB Version 1.3.45 Release Notes
+---------------------------------
+
+DataMemory:
+Resolved a problem with data memory exports that displayed default values folowing an export
+
+I2C to HDQ:
+Added full support for the bq78z100
+Minor enhancements to the user interface
+
+
+bqSBB Version 1.3.44 Release Notes
+---------------------------------
+
+Commands:
+Transaction Log scrolls up on every transaction so last transaction is always viewable.  
+
+Data Memory: 
+Data Memory: Convert all non string data values to lower case during gg.cvs import. 
+Updated field names and field order of gg.csv export to match default export format.
+
+Programming/Firmware:
+Resolved a problem with .fs programming with HDQ targets
+Improved progress and status feedbeck when programming SREC files
+
+Golden Image:
+Added NVMWriteEnable support for DFFS export
+
+Chemistry:
+Improvements to the chemistry selection plugin user interface for the bq27425
+
+GDK:
+Added tooltip feedback when charge/discharge parameters fall outside of allowed GDK imposed ranges
+
+bqStudio Install:
+Last install directory path is saved. This is used as the default path the next time the tool is installed. 
+
+Wireless Charger:
+Added string support in the registers plugin for the bq50002
+Added full commands plugin support for the bq50002
+
+Charger Field View:
+Double Read of all registers in Field View changes to single read
+
+Charger: 
+Add HostSimulator in Default View
+
+
+bqSBB Version 1.3.43 Release Notes
+---------------------------------
+
+ECC Authentication: Plugin header section text can be specified in ui.xml. 
+
+Registers: Fix AutoCycle so it works while Register logging is active.
+
+DataMemory: DataMemory screen FileDialogs for Import and Export now save and recall the last used directory. 
+
+
+
+bqSBB Version 1.3.42 Release Notes
+---------------------------------
+
+
+Added SMB Authentication plugin for bq40z50R1.
+Update ECC validation executable gf2.exe 
+
+
+bqSBB
+Added register, datalog, datagraph, and command support for wireless chargers
+Added calculated register support for wireless chargers
+
+Commands:
+Significant cleanup to single-cell unseal handling and GUI
+
+I2C to HDQ:
+Added I2C/HDQ mode transition support for bq78z100
+
+Dashboard:
+Added scroll bar support to the dashboard GUI
+Added image scaling to the dashboard
+
+GoldenImage:
+Resolved a problem with subclasses that should be excluded from GMFS export
+
+Registers:
+Resolved a problem with scroll bar and single column support
+
+Datamemory:
+Importing and exporting defaults is now support with no gauge attached
+
+ParameterQA:
+Resoled a problem caused when using this plugin without first opening the DataMemory plugin
+
+
+bqSBB Version 1.3.40 Release Notes
+---------------------------------
+Corrected releasenotes.txt file in install folder
+
+bqSBB Version 1.3.40 Release Notes
+---------------------------------
+
+Calibration:
+Resolved a problem when calibrating current with charge current
+
+bqToolsSDK:
+Four functions are changed to private. Removed device specific parameters. 
+
+Misc:
+Fixed issue with Advanced I2C comm not showing in View menu
+Fixed blurred Advanced comm toolbar icon
+
+bqSBB Version 1.3.39 Release Notes
+---------------------------------
+Added ECC functionality
+Added TI icon
+
+bqSBB Version 1.3.38 Release Notes
+---------------------------------
+
+DataMemory:
+All parameters written to parts are verified with a readback and compare during import and cache operations. If a readback compare fails, all other data is written and parameter that failed is reported in datamemory status line. 
+
+Authentication:
+Added SHA-1 key change support to the authentitcation plugin
+Several enhancements to the authentication plugin GUI
+
+Added a dialog after successful gg.csv export to not save in Excel and reimport. Excel changes data formats. 
+
+bqStudo version is now displayed in title bar of tool and in dashboard. 
+
+Resolved problem with SREC file selection in programming plugin.
+
+Add initial version of ECC Authenticaion functionality.
+
+
+bqSBB Version 1.3.37 Release Notes
+---------------------------------
+
+Datamemory: 
+Fix import of default parameters in basic view.
+
+
+bqSBB Version 1.3.36 Release Notes
+---------------------------------
+
+Charger:
+Added support for charger.xml debug mode
+fixed bugzilla #1442: I2C address display 7-bit vs 8-bit
+Added support that if no Dashboard element is defined or no child element under dashboard, remove dashboard from the view menu.
+Make the control of showing dashboard initially from plugins.xml to charger.xml 
+Added support of retries if read/write register fails
+Added support of default selection of time interval of watchdog reset timer 
+Fixed bugzilla #1462 -- Charger table cell and Control highlight problem 
+Fixed bugzilla #1463 -- 
+
+Toolbar:
+Fixed bugzilla #563: plugin toolbar does not have scroll window if screen size is too narrow 
+
+Firmware:
+
+Improved error messages returned when parsing srecord file.
+
+Dashboard: 
+
+The dashboard will do a more complete firmware detection after programming new firmare. Bugzilla #295
+
+
+
+DataMemory:
+
+Added sealed state indication to data memory plugin
+Fix bq78350 crash when gauge is not connected to communication adapter. 
+
+Goldenizing:
+Added new goldenizing plugin
+
+GoldenImage:
+Reoslved improper handling of config update mode in GMFS export. Bugzilla #1416
+
+GDK
+Update Default GDK Script. Bugzilla #968
+
+
+Chemistry:
+Chemistry update feature now accepts the *.zip file downloaded from TI.com
+
+Misc:
+Resolved problems with some MCS devices in prior removal of data flash read at startup
+Modified error messages to include "bqStudio" and remove references to non-existing log files
+removed warning on using org.eclipse.ui.internal.WorkbenchWindow
+
+
+bqSBB Version 1.3.35 Release Notes
+---------------------------------
+Changes from v1.3.34
+
+Chemistry:
+Add support for chemistry programming from an external chemistry file.
+
+DataMemory:
+Data Memory gg.csv header information now includes both gauge read version information and bqz version information.  
+Disabled initial data flash read for HDQ targets in the DataMemory plugin
+
+Dashboard:
+Dashboard now reads the target one time and launches disabled for HDQ targets
+
+Misc:
+Removed initial data flash read on bqStudio startup
+
+
+bqSBB Version 1.3.34 Release Notes
+---------------------------------
+Changes from v1.3.33
+
+Chargers:
+Added initial support for bq24188, bq25120 bq25890, bq25900
+
+
+bqSBB Version 1.3.33 Release Notes
+---------------------------------
+Changes from v1.3.32
+
+Chemistry:
+Added support for chemistry programming using external chemdat file
+
+HDQ:
+Added HDQ srec programming support
+Added 25 minutes programming warning in SREC Programming Dialog box if ggProtocol equals HDQ.
+Add HDQ Firmware execute functionality to "Execute FW" button.
+
+Programming:
+Fix bug writing page0 of IF in last checkin.
+
+
+Misc:
+Updated provider names from TI to Texas Instruments Inc.
+added usb-icon_224.png
+Fixed bugzilla 1244
+
+Charger:
+Added dashboard support for bq25120
+Added single registerview
+Lots of other new development per verbal input from charger team
+
+
+bqSBB Version 1.3.32 Release Notes
+---------------------------------
+Changes from v1.3.31
+
+
+Learning Cycle
+Resolved a cross threading issue when running in automated mode
+Resolved a problem with IT enable on the bq40z60
+
+<<<<<<< HEAD
+=======
+GDK
+[Bug #791] - Several enhancments to control panel flow control and scroll bars
+Added auto cycle tab with charge/discharge configuration, configurable relax times, and loop control
+
+>>>>>>> a4d1ec92dab0a2349106cde3d72ea134b51e28be
+
+
+bqSBB Version 1.3.31 Release Notes
+---------------------------------
+Changes from v1.3.30
+
+Resolved a OCVb table programming issue when using the new chemistry naming standard
+
+Learning Cycle
+<<<<<<< HEAD
+Enhancements to charge termination and manual mode support for the bq40z60
+=======
+Enhanchements to charge termination and manual mode support for the bq40z60
+>>>>>>> a4d1ec92dab0a2349106cde3d72ea134b51e28be
+
+Bugzilla Fixes:
+1057
+
+
+bqSBB Version 1.3.30 Release Notes
+---------------------------------
+Changes from v1.3.29
+
+Resolved a target selection issue when switching devices if the target cannot be auto-detected
+
+Learning Cycle
+Reduced minimum and default terminatiopn voltage for multi-cell gauges
+Minor enhancements to plugin user interface
+Updates to bq40z60 learning cycle plugin per specification update and bugzilla #1124 and #1153
+
+Bugzilla Fixes:
+922, 1079, 1110
+
+
+bqSBB Version 1.3.29 Release Notes
+---------------------------------
+Changes from v1.3.28
+
+Learning Cycle
+Increased the maximum discharge relax time to 6 hours
+
+Bugzilla Fixes:
+1052, 1124, 842
+
+bqSBB Version 1.3.28 Release Notes
+---------------------------------
+Changes from v1.3.27
+
+Registers
+Corrected the date format for the Registers plugin when set by the Preferences dialog
+
+DataMemory
+Fixed a bug when selectively importing GG files in Advanced Mode.
+
+GoldenImage
+Improved robustness of HDQ support and improved error reporting
+Added HDQ protocol export option for .gm.fs file export
+
+GDK
+Resolved a problem with GDK detection introduced by HDQ protocol updates
+
+Added SHA-1 verification plugin for multicell SMB devices
+
+Bugzilla Fixes
+533, 816, 824, 874, 900, 1042, 890, 884, 930, 
+#376 Execute button for single cell devices was not working
+#841 now forces elapsed time format to be s.SSS
+
+---------------------------------
+Changes from v1.3.25
+
+Improves support for dynamically switching devices and reloading the
+appropriate plugins.
+
+Voltage calibration changes for bq34z100G1.
+
+GoldenImage
+Resolved an HDQ read block problem when exporting golden files
+Added DFI and ROM file export support
+
+---------------------------------
+Changes from v1.3.24
+
+Installer deletes 0621_1_05-bq27621G1A.bqz
+Added Learning cycle plugin for bq40z60
+
+
+bqSBB Version 1.3.24 Release Notes
+---------------------------------
+Changes from v1.3.23
+
+Project Mode
+Will skip plugins that aren't supported by specific devices.
+
+Add Calibration support for bq34z100G1 for I2C and HDQ. 
+
+Defect ID #846. Fix single cell data memory device name duplicating characters if name spans two rows.  
+
+Defect ID #860. Fix Commands plugin for single cell device always sending high byte of word as 0. 
+
+
+bqSBB Version 1.3.23 Release Notes
+----------------------------------
+Changes from v1.3.20
+
+Added I2CtoHDQ plugin for bq27742-G1
+
+HH programming plugin - Added Execute functionality and button
+
+Advanced comm plugin - Added HDQ support
+
+GDK bug fixes
+
+Bugzilla fixes
+Fixed I2C command bug # 860 missing high byte
+Enhancements to firmware plugin per bugzilla #250 and GUI updates
+
+
+bqSBB Version 1.3.20 Release Notes
+---------------------------------
+Changes from v1.3.18
+
+Chargers
+Completed support for bq25890
+
+Added new plugin: Convert from I2C to HDQ
+
+Parameter QA plugin
+Added support for the Temperature and SOH Charging Parameter graphs
+
+Added chemistry programming support for Ra0_Charge
+
+Changed raw calibration block reads to begin at address 0x3E for non-SMB devices
+
+bq9000 programming changed so DF MISR is checked again before programming completion. IFIB is erased first. 
+
+Autocycle menu begins in the correct state.  Added Autocycle retry mode on NACKs
+
+Fixed chemupdater.zip file version read. Chemistry can now be updated from chemupdater.zip file
+
+bqzReader now sets privacy back to default when bcfgx is unloaded
+
+bcfgx hex display format default values must be prefixed with 0x or 0X to be interpreted as hex
+
+Add warning when Autocycle begins to continuously monitor system for safety
+
+GDK plugin now supports GDK measured voltage and current as termination conditions for scripted charge and discharge cycles
+
+Resolved several race conditions that were presenting more more complex GDK scripts from executing correctly
+
+Several architectural changes to backend data flash access to eliminate race conditions when multiple plugins are accessign data flash
+
+Internal architectural enhancements to the data flash plugin
+
+bqSBB Version 1.3.18 Release Notes
+---------------------------------
+Changes from v1.3.17
+
+GDK
+GDK script support for generic register and data memory access
+
+Autodetect
+Fixed problen of DMcode showing ffffffa1 instead of A1
+
+Learning cycle
+Add missing file to last learning cycle commit
+
+Fixed a bug in the bq78350 SREC programming code ( EV2300 only )
+Added support for bq25890
+
+
+bqSBB Version 1.3.17 Release Notes
+---------------------------------
+Changes from v1.3.16
+
+HDQ (These updates were made in June but the binaries were updated at v1.3.17 release)
+Fixes to autodetect
+Correction to double read uncovered by HDQ sniffer
+Backend updates and more error handling
+
+Chemistry
+Added Rscale support for Chemistry programming for HH device bq27532
+
+Autodetect
+Added step in manual device selection to select kind of device
+
+GPC packager
+Changes to GPC packager plugin to meet IT security requirements
+Updated text on GPC packager to make clearer that cell voltage is required
+
+Golden Image
+Moved OTFS support to backend (more secure code)
+Update to GoldenImage plugin for OTFS
+
+GDK
+Updates for bq27532-G1 GDK per spec
+
+Updates to bq27532-G1 Learning cycle per spec
+
+Calibration
+Fixed current calibration issue(sign reversed issue bq27532) for HH devices
+
+bqSBB Version 1.3.16 Release Notes
+---------------------------------
+Changes from v1.3.15
+Fixed logging functioanlity/GUI in Registers plugin
+
+bqSBB Version 1.3.15 Release Notes
+---------------------------------
+Changes from v1.3.14
+Reverted changes in autodetect for skipping Df read that caused bqStudio to crash with MCS devices because targetinfo entry was missing
+
+
+bqSBB Version 1.3.14 Release Notes
+---------------------------------
+Changes from v1.3.12
+
+General:
+Default date format when logging uses calendar date rather than sequential day number
+Improved backend support for HDQ
+Several minor installer application updates
+
+Commands:
+Add HDQ support to MCS Seal/Unseal
+
+Firmware/Programming:
+Updated bq78350 SREC support to include programming DF only
+
+GDK:
+Resolved occasional null pointer in GDK plugin exception due to race condition
+
+Calibration:
+Resolved a problem reading CC Offset during software current calibration
+
+
+bqSBB Version 1.3.13 Release Notes
+---------------------------------
+Changes from v1.3.11
+
+None - v1.3.13 was never built or released
+
+
+bqSBB Version 1.3.12 Release Notes
+---------------------------------
+Changes from v1.3.11
+
+General:
+Several minor enhancements to the top-level bqSBB GUI
+Several minor fixes to CUI to resolve mispelling and grammatical errors
+Added close confirmation dialogs to registers, data memory, and watch when logging
+Several enhancements and updates to HDQ support
+
+GDK:
+Added delay before sampling the GDK status register for unexpected completion
+Enhanced the charge and discharge termination information in the log
+Updated the allowable termination voltage limits
+Removed references and dependencies upon gauge passed charge
+Updates to resolve problems using the GDK plugin with the sn17742
+
+Firmware:
+Add delay after SMB device returns to ROM. bq78350 with bq76940EVM needed more time before call to program srec.
+Added notification popup on successful firmware update
+Firmware plugin will not execute FW if there was a programming failure.
+
+Learning Cycle:
+Resolved a UI cross threading issue in the learning cycle plugin
+Updates to Learning Cycle plugin to support GDK with the bq27421
+LeaningCycle plugin now disables logging when running a relax task
+
+Registers:
+Resolved a problem writing to 8-bit SBS registers
+Update to bqSBB.dll to resolve problem reading parameter strings shorter than the parameter size
+
+Commands:
+Update to the seal/unseal command support and key handling
+
+Watch:
+Resolved an exception when disposing the plugin
+
+Chemistry:
+Added bq27320 OCV programming
+Remove bq27320 chem programming block
+Update to bqSBB.dll to address problem programming the OCVb table for the bq27532-G1
+
+Bugzilla fixes:
+#403, #415
+
+Golden Image:
+Added full OTFS support to the GoldenImage plugin
+Removed DF only SREC export support from the GoldenImage plugin
+
+Other:
+Removed data flash write all flush from the write GG function
+Add ROM bq78350 srec readback for ROM ver 0x0301 and 0x0303
+Fixed wrong index when copying IF causing memory corruption in the bq9002
+
+
+bqSBB Version 1.3.11 Release Notes
+---------------------------------
+Changes from v1.3.10
+
+General:
+Added GPCPackager plugin
+Added warning when detect a firmware version of 0.00
+
+GDK:
+Updated the infrastucture to support the latest firmware version
+Added additional voltage filtering when charging or discharging to remove noise
+Imposed functional limits upon script command parameters where appropriate
+Updated the imposed functional limits and added temperature dependency
+Removed debug values added to log for current spike testing
+Added support for the average current and voltage values to the script log
+Modified the GDK GUI to report the average current and voltage values
+Added support for low level discharge calibration commands
+Added a button to the GDK script window to load the default script
+Added a Save As button to the GDK script window to allow for script renaming
+Added support for several specific low level gauge commands to the scripting engine
+Added generic low level gauge command support to the scripting engine
+Charge and discharge cycles now gracefully terminate on fault or status changes
+Resolved minor problems in script command processing
+
+Commands:
+Change multicell commands plugin writestyle default from 2 to 1. Could cause older bqz files to break
+
+
+Firmware:
+Updates to SREC programming to accommodate DF only support
+
+GoldenImage:
+Added DFFS export support for gauges with read-only instruction flash
+
+Bugzilla fixes:
+#209,#216,#311,#366,#369,#370
+
+Other:
+Change bq9000 srec programming so IF and DF segment is only mass erased if srec actually contains data in that segment.
+Fixed function GetParameterNamefromIndex. It was only returning the parameter name before and was never used.
+
+bqSBB Version 1.3.10 Release Notes
+---------------------------------
+Changes from v1.3.9
+
+General:
+Splash screen updated to show TI logo
+Cleaned up dead code
+Added error handling for auto file generation
+Added OCV table programming for bq78350
+Grammar and typo fixes
+Now warns user of incompatibility if selected target does not match bqz
+
+Autodetect:
+Tries to autodetect I2c devices at slave address 0x34
+
+Registers:
+Fixed bug with s.sss never being applied
+Implemented new elapsed time specification for time stamps
+Enhanced logging/scan integration - speeds up logging/scanning
+Updated placement logic of SBSInfo box to get around issue seen on some computers
+Fixed bug: Registers comes up empty if screen size if too small
+
+Dashboard:
+Takes slightly lesser space
+Fixed problem of values >10V not fitting
+Added display text for connected case
+
+Commands:
+Fixed color bug: red on success
+Added support for MCS SMB devices
+Removed manual control panel which was confusing
+
+Data Memory:
+Bug Fix for visibility of buttons - advanced import now shows only in advanced mode
+Fixed indentation of data display to use empty space
+Added escape key feature to close popup
+Buttons will now do default action, no need to always click on dropdown box to select default action
+
+Chemistry:
+Fixed bugs : Error message was not being cleared on successful programming,Messagebox was showing before status line was updated
+Added code for DVC chemistry - not code reviewed or tested
+Fixed bug in chemistry updater where it would say that it had latest even though the version number obviously is older
+
+GDK:
+Scripting enhancements per new spec and multiple bug fixes
+Added GDK discharge termination conditions for SOC1 and SOCF and charge and discharge functions
+
+Programming:
+Remember last 10 filenames and prompt using Combobox
+
+Parameter Q+A:
+Added meaningful error message when Parameter Q&A references data flash names that does not exist
+
+Advanced Comm SMB: 
+Added Keyboard shortcuts for keyboard only capability
+
+Calibration:
+Updated bq78350 calibration per new procedure spec
+
+Bugzilla fixes:
+#233, 258, 242, 268, 269
+Renamed data log plugini to "Watch"
+
+bqSBB Version 1.3.9 Release Notes
+---------------------------------
+Changes from v1.3.7
+
+General:
+Fixed bug in autodetect for bq27421 variants which was causing SBS to not load in some cases
+
+Registers:
+Added algorithm to pick sbsx file from bqz (now allows multiple sbsx files)
+Popup placement optimized to fit in available space-display the pop up below/above the selected selected item based on the available space, or put it in between if  not enough space either put it below or above.
+Made the pop up size smaller, and set focus to the Value text box when it displays
+Added new feature to dispose the pop up if "ESC" key is pressed or anywhere outside the pop up window is clicked.
+Enhanced Bit register table - remove the mouse hover and selection effect that caused confusion for some users
+Added X (close) at the top right corner to close the pop up
+Added border to the pop up
+SBS information now shown even when no data in field
+Added keyboard support: Pressing enter will write the value
+Added support for <isvisible> tag
+
+Data Memory:
+Added auto file dialog box to *.gg if Classic configuration is selected, otherwise, set the filter to ".gg.csv"
+
+Chemistry:
+CEDV+ programming plugin added for bq78350
+Added code to parse DVC chemistry database files
+
+AutoDetect:
+Added support for Double Click to trigger the Finish on device selection
+Added Cancel functionality to terminate program right after targetlist popup
+
+Datagraph:
+Fixed alignment issue - empty wasted space removed
+
+GDK:
+GDK support added
+GDK calibration implemented
+
+Other:
+Added internal function to export SBS Items to a specified Auto file ( needs special file to enable )
+
+Help:
+Updated old SBB references 
+bqSBB Version 1.3.7 Release Notes
+---------------------------------
+Changes from v1.3.6
+
+New functionality:
+ECC signature verification plugin updated to match latest implementation
+Added srec to flashstream functionality and GUI
+
+Registers:
+Added datetime elapsed time format s.sss to Regiters/SBS log
+
+bqSBB Version 1.3.6 Release Notes
+---------------------------------
+Changes from v1.3.5
+
+Data Flash:
+Bug fix *.gg.csv is now the extension for both import and export
+Added separate extension for old style gg files (same as *.gg to keep consistent with older gg files)
+Updated GUI based on export preference to show correct extensions
+
+Autodetect:
+Added feature so that bqSBB will  attempt to poll for EV2x00 after startup
+If EV2x00 is disconnected then bqSBB will pick up the first free one
+Hooked in auto configuration on detecting new target or EV2x00 insertion with target
+
+Chemistry:
+Improved chemistry programming for SCS devices.
+Standardized all chemistry related data memory parameter names.
+
+LearningCycle:
+Enabled goldenizing.
+
+GDK:
+Added time based termination.
+Added Int and Ext temperature to display.
+Changed some input ranges.
+Minor bug fixes.
+
+Commands:
+Added Unseal and Unseal FUll Access key input dialog.
+
+Advance Comm I2C:
+Changed configurable log text color to fixed.
+Added text for number of bytes to clarify that it is a decimal value
+Changed conversion function to use decimal instead of hex for number of bytes
+
+Application:
+Added support for scanning multiple I2C device addresses durning startup.
+
+Programming:
+Fixed SREC programming issue for SCS devices.
+
+Dashboard:
+Fixed device locked icon for MCS devices.
+
+Graph:
+Added support for multiple Y axes
+
+Other:
+Updates to SCS BQZ containers.
+
+
+
+bqSBB Version 1.3.5 Release Notes
+---------------------------------
+Changes from v1.3.4
+
+Bug fixes:
+Fixed Targetaddress is null if no device autodetected
+Updated bqMaximus calibration
+
+Misc:
+Changed references from bqSBB to "Battery Management Studio"
+Updated chemistry form GUI to be consistent with other windows
+
+
+bqSBB Version 1.3.4 Release Notes
+---------------------------------
+Changes from v1.3.3
+
+Calibration:
+Added descriptive text to calibration progress dialog during calibration
+Fixed temperature calibration bug that was introduced on a recent feature add (HH)
+Added bqMaximus calibration support
+Workaround for FW bug: Add a double read and compare for raw cal frame. FW is not thread safe. Add explicit cancel cal.
+
+Commands plugin:
+Added support for Private and SealedAccess for Commands plug-in
+Added new icons
+Format Commands AccessStyle 1 (16 bit values) as 0x0000.
+
+Dashboard:
+Added SLEEP and SS dashboard support.
+Change UNSEAL_FULL_ACCESS button to only show if the gauge supports the FAS bit.
+
+Chemistry:
+Added initial HH chemistry support hooked up to frontend
+Modified chemistry code to support new parameter names. (Requires new bqz files)
+Fixed data memory cache when in TI mode.
+
+Added transaction log:
+Error Log viewer support added
+Checks for incompatible format in write block window
+Added feature to open calculator, clear log, save log
+Added open view handler that opens the log view on clicking the menu items
+Added menu item to tool bar and drop down menu.
+
+Misc:
+Added HDQ support for registers and DF
+Added StaticChemChecksumAddr to LogSetInfoParams
+Moved authenticate button to the host group box
+Fixed crash in dashboard for MCS devices
+Change to send Detected ggProtocol after targetinfo is parsed
+Removed the DLL export from the programming methods that were in place for testing only
+
+bqSBB Version 1.3.3 Release Notes
+---------------------------------
+Changes from v1.3.2
+
+Registers:
+Added some tolerance fo missing SBS items
+
+Data Flash:
+Bug fix to internal all open mode - some items were not being shown
+Made Flag display more readable
+Changed button to write flag to be bigger
+Added caption of Data Flash name on flag display instead of wrapped name in narrow column
+Moved flag display slightly to right to prevent other DF items from being hidden when flags are displayed
+Updated colors to use system color on flag popup
+Improved speed (slightly by preveneting ,ultiple writes)
+
+Calibration:
+Fix related to bq40z50 using old MAC
+Added low level target info items for HH
+GDK:
+Changed from listed as a plugin to show if detected
+
+Chemistry:
+Added support for 2 Rb style chemistries (HH)
+Added support for compressed and uncompressed chemistries  (HH)
+Added support for High frequency chemistry data for bq40z50
+Added alternate chemistry plugin for bq27621
+Added read chemistry button (HH)
+
+Supported many additional HH devices ( created bqz for each )
+
+bqSBB Version 1.3.2 Release Notes
+---------------------------------
+Changes from v1.2.1
+
+Datalog:
+* prefixed parameter name with class and sub class names in the remove
+item list, without which it would be difficult to identify 2 parameter
+if they have same names
+* updated code which checks for the max limit of parameters being added
+to the logger/graph viewer.
+Chemistry plugin:
+1. Fixed error message display not getting cleared
+2. updated code to show error and non error messages in status line in different color
+3. Fixed minor bugs - there are more bugs that i found - need to fix
+Chemistry plugin:
+1. Updated progress bar location
+2. Added job for chemistry update
+3. Added enable disable for buttons
+4. Added status bar reporting for error
+1. Fixed indentation
+2. Added status line error message description on fail
+Chemistry plugin
+1. Fixed typo in success message
+2. Reorganized code towards aim of allowing use of independent thread
+3. Added stub for function to do independent thread
+4. Cenetered progressbar below "update chemistry" button - with autoresize capability that tracks the button
+Bugfix:
+1. Application start crash fixed
+2. calbq78350 plugin visibility fix
+bq78350(bqMaximus) calibration:
+1. Added validation for voltage values
+2. Added common progress bar for all buttons to report progress
+3. Disabling buttons after click until done to prevent race conditions
+4. Added thread for UI to show progress bar
+5. Reorganized code to use common functions - Reduced 800 lines for code
+Refined GUI for bq78350 - removed border from text
+Added bq78350 plugin to exported project
+1. Fixed bug - was using wrong variable to translate error message
+bq78350(bqMaximus) calibration
+1. Added validation for voltge, current and temperature user input
+2. Hooked in all status reporting to correct functions
+3. Fixed enable disable of buttons to be visually correct
+4. Added specific messages to indicate type of calibration in which error was encountered
+SBS/Registers:
+1. Fixed "Date,Time" issue in header
+General:
+1. Fixed plugin.xml
+Added complete GDK plug-in.
+Added Power and RemainingCapacity to Dashboard ui.xml.
+Fixing some warnings for missing or wrong file references.
+Other
+1. Removed unused dependency that caused error in export
+Message:
+Always erase page 3 of IFIB during bq9000 programming. Update comments.
+Added focus listeners for highlighting text in text boxes to improve UI experience.
+Moved function isNumeric to Utils.
+Added new icon to product file.
+Add preliminary HF resistance.
+Fix ExitCal sending a MAC 0. Add preliminary HF Resistance.
+Add Design Capacity for HF Resistance
+Updated GDK DashBoard.
+Updated many application and plug-in icons.
+Fix buffer overrun in ReadElementString.
+Add error conditions. Extended version read block size; Parameter data flash address not defined.
+Added keyboard arrow support for dialog with details
+Adding GDK Monitor to the DashBoard.
+Deleting project com.ti.evswsdk.hhdeviceaccess.
+* Adding package com.ti.evswsdk.autodetect.hhdeviceaccess.
+* Resolving project references.
+* Adding GDK detection.
+bq78350 Cal after testing with frontend.
+Adding GDK project. (Project shell files only)
+bq78350 : Fixed alignment of buttons
+Initial Project Mode implementation.
+bq78350 calibration: Added stub for cell voltage validation
+Added tool tip instead of checkboxes for ease of use
+Added code to clear status images before starting calibration
+1. Added temperature calibration for 3 thermistors to GUI
+2. Updated GUI to autosize
+3. Added code to call backend function for thermistor
+1. Added function calls to backend to perform CCOffset and CCGain
+2. Fixed alignment of group boxes and spacing
+3. Centered Calibrate CC offset button in groupbox
+Added GUI for bq78350 calibration
+Added auto scrollbar and autoexpand feature
+Hooked up voltage calibration function
+ 
+Change doc for CreateChildProcess
+Change SetupAppwithFirstFreeAdapter to support 16 channals.
+Revert "Fix grammer in ROM_VERSION_NOTSUPPORTED"
+This reverts commit 4a5ec99193b902039dc129364759f346bd16e462.
+Fix grammer is ROM_VERSION_NOTSUPPORTED
+merged from fetch
+1. Updated perpective to show all TI plugins in main panel unless specified to be at bottom. This prevents new views from being opened in bottom
+2. Updated JNI adapter with new prototype for bqMaximums/bq78350 calibration function
+Added missing file
+bq27320_0_00 bldg10 BCA and CCA bits moved. Now different than HH. Added new function to check bits for WaitCCAB...bq27320 only.
+Updated file from Clearcase
+ 
+Dynamically change column names based on target device.
+* Removes Hex Dump button for devices supporting subclass ID.
+Updated version number of installer to match bqSBB product
+ 
+Fixed signed byte bug in FS file output.
+Updated release information Build number and date of build
+Updated bqSBB.lib file
+1)Class buttons in DFView will have a back ground border to indicate the
+current selection if the focus is lost
+2)Whenever the parameter is changed, then the corresponding class name
+on the button will be appended with a "*" symbol
+updated to display chemistry version on the bottom right corner of the
+view
+ 
+Updated code for Handheld devices to show correct subclass ID in Physical address field of data flash
+Fixed rowoffset and rownumber(blocknumber) for class type data flash access. Autodetecting based on address range
+Bug fix : Data flash row number and offset for existing devices (startDF = 0x4000)
+Add bq78350 cal.
+
+Add Calbq78350. Not tested.
+Updated lost changes for GetParameterString buffer size change. Added Calibratebq78350
+Bump version of bqSBBdll to v1.1.3 to avoid conflict with outdated 1.1.2 dll that was not checked in (1.1.2 was used in bqSBB v1.3.0)
+Set the default dashboard strings to MCS defaults.
+ 
+Adding support for I2C reads greater than 29 bytes.
+* Refactored plug-ins to use Utils to update the UI status bar.
+Fixed bq.fs and df.fs file path issue.
+Adding static utility classes to hhdeviceaccess plug-in.
+* Cleaned up code in Authentication plug-in to use utilities.
+Fixed null reference bug in Learningcycle plug-in.
+Disable ECC and commands plugin by default.
+scanTimer might be null - added check for same
+ 
+Adding Authentication plug-in.
+* Minor fixes and/or improvements to other plug-ins.
+Update GetParameterString buffer to 1024
+Added install project for bqSBB and updated files used in install
+ 
+Updated version number to v1.3.0 SQM build
+ 
+Fixed bug in export - Updated features to be able to export
+ 
+Bump Version Number
+Pull version 1.1.1 changes from clearcase
+Updated version number of sdkjniadapter to 1.0.3 for upcoming release
+ 
+Renamed "Backend" to "backend"
+
+Changed element name back to "writevalue".
+1. Bug fix for buffer size(increased) used in GetParameterString()
+2. Updated relative paths in build settings
+3. Added library files used for linking to make projects self sufficient
+4. Added post build scripts to copy header files to common\include
+ 
+Updates for buffer size since additional information is sent in  GetParameterString() for HH
+ 
+uncommented the line sdkobj.CloseContainer(); in AutoDetectDevice.java
+ECC plugin changes as per latest spec.
+1. Added bqSBB dll project
+2. Updated dependencies to be self contained
+3. Updaetd roject paths and settings to pick up correct files
+4. Updated all configurations
+ 
+1. Updated projects to copy header files to common
+
+ 
+1. Added bqzreader and associated files
+2. Migrated bqzreader from VS2008 to VS2010
+3. Updated dependency information and paths for project
+ 
+Fixed commands value tag that is compared from xml targetinfo module
+ 
+1. Added commmgr projects - CMAPI, commmgr.exe
+ 
+1. Added bq80xrw.h file to common folder
+2. Fixed common include path that was hardcoded in project file for release configuration
+ 
+Added project bq80xrwdll from EV2300 project in Clearcase
+Updated dependency paths to common
+Updated project files debug and release configuration dependencies
+Added mandatory libraries
+ 
+1. Added doxygen file from Clearcase
+2. Updated commands plugin to have scroll capability on manual section
+3. Added help feature for commands plugin
+Pushing confirmed changes for displaying raw values in registers plugin.
+Moving project hhdeviceaccess into the proper folder (frontend).
+
+Update to commands plugin to allow use of decimal values (fixing merge issue)
+ 
+Removed 'SBS' text only references.
+ 
+Updated software license agreement. Added TI commercial license section which was missing in previous document
+ 
+Post build steps for copying header file to common\include folder saved as part of project settings
+ 
+Added romxml project files. Changed to relative paths and added post build events to keep header files in common include folder synchronized
+
+Increase buffer used by GetParameterString to 1024 bytes.
+Undid the dashboard changes that disabled dashboard becaue of Project1 file
+ 
+Adding SREC support to Programming plug-in.
+Adding initial ProjectMode support to plug-ins:
+* GoldenImage
+* Calibration
+* LearningCycle
+* ParameterQA
+Adding projects: ProjectMode and HHDeviceAccess.
+bqProduction SBB : EV2X00 id to be shown as tool tip in adapter no
+column. SetEV2x00Name function added, but commented out as it will not
+be used currently
+bqProduction SBB : bug fix in getInstance method
+Corrected dashboard. Previous checkin had a temporary disable that was for a specific firmware debug.
+1. Fixed bug with display of manual commands section. Now it is aligned correctly
+2. Added error translation to chemistry plugin instead of just showing error number
+Merged following changes into commands plugin
+-Capability to specify commands in hex as well as decimal
+-Autoadjust GUI for Manual control
+-Autoadjust GUI for transaction log
+-Add clear button for transaction log
+-Implement clear functionality for transaction log
+Checked in changes to TargetInfo
+Restructured folders for better visibility and for ease of importing and compilation
+
+
+ 
+Added getParameter function.
+Added Backend folder
+Added sdkjniadapter project
+updated sdkjniadapter project to use relative paths for headers - still a work in progress
+updated sdkjniadapter project buffer sizes for GetPAramterString() and changed name of define to be more meaningful for other places
+ 
+Updated version number of product from 1.3.0.qualifier to 1.2.2.qualifier. Ready to make preview (pre test) release supporting bq27421G1B
+ 
+Commented old way of doing the scrolling. this was being overridden by the new method but there is a possibility that it could apply during initial bringup if the resize event was not called by Eclipse
+
+Conflicts:
+	com.ti.evswsdk.commands/src/com/ti/evswsdk/commands/CommandView.java
+ 
+Fixed missing voltage and temperature units in Dashboard.
+* Slightly adjusted the weights of the Dashboard.
+Changed background of commands composite to white.
+ 
+Adding GaugeMode FlashStream file support to Programming plug-in.
+Added FlashStream file support to GoldenImage plug-in.
+1. Added perfect scrolling in CommandView.java - now works regardless of how many rows and columns of buttons are shown for best fit
+2. Added feature to permanently disable dashboard polling by adding a preference file in configuration settings
+3. When dashboard polling disabled then menu items related to it have also been disabled
+
+ 
+Fixed plug-in display when ui.xml is missing or invalid.
+Adding first pass completed LearningCycle code.
+Added autoscroll capability to  CommandView.java
+This is a crude implementation meant to provide useable GUI for the initial release on 9/13
+The MinHeight setting needs to be updated to be accurate and take into account the layout and the width in order to compute the height at which scrollbar is a must.
+
+Removed duplicate block of code in xml parser.
+Updating PluginInfo objects.
+Updating PluginInfo.java for learning cycle.
+ 
+Removing all non Java files (.copyarea.db)
+version 1.0.1
+Added support for bq9000 Board Offset Calibration
+Added API for bq9000 Board Offset Calibration
+minor updates related to log viewer & log job
+dashboard object to be initialized in constructor
+commented out unused line which was causing NPE
+updated to get dashboard info from ui.xml
+SBS bug fix for legacy MAC command.
+updated to send checksum to execute f/w
+Adding global ui.xml file parser.
+* Created separate package com.ti.evswsdk.global.ui.
+* Modify plug-ins that parsed the file locally to read globally.
+
+
+bqSBB v1.2.1 release
+---------------------
+Changes from v1.2.0 to v1.2.1 Release	
+	
+1. Registers:
+Autocycle support added
+Header for "Date" was missing from log. Added the same
+Error when trying to log/scan without any data being selected
+Stop logging when view is disposed
+Scan/Log to use single read-thread./ Also syncup checkboxes
+Fix for Write from registers plugin for 28z610
+Add description field to sbsx
+Fixed : If battMode is changed from PRO plugin then Units do not change in Registers plugin.
+Fixed : Un check on scan will automatically uncheck log. Check on log will automatically check scan.
+Fixed: Autocycle Bug - during discharge. Fix crash at close. 
+	
+2. Datalog:
+DF read moved to autodetect to allow datalog w/o opening DF plugin
+Add limit on number of items that can be logged
+	
+3. DataGraph:
+Add limit on number of items that can be graphed
+Synchronize time-axis based on timer selection
+	
+4. Commands:
+Support for SBS added and additional access styles
+	
+5. Data Flash:
+denominator to calculate the row number changed from 32 to 512
+	
+6. Chemistry plugin:
+Chemistry plugin optimization for reading chem file Down to 0.5Sec from 7 seconds)
+	
+7. Advanced Comm I2C:
+Read block was having extra eol character after every 8 bytes. Fixed the same
+Readblock limits the size to 64. Changed to 256. This needs fix in jni adapter as well.
+Size during readBlock was treated as if in hex. Changed to decimal
+	
+8. Calibration:
+Fix for Temp sensor calibration in basic view.
+	
+9. Targetinfo:
+Added support for section keyword
+PlatformInfo Parser needed for bqMTester
+targetinfo constructor can accept external sdkobj object. This is again needed for bqMTester
+	
+10. New development
+ECC: New Plugin added for bq9003
+logviewer:	New plugin added for log and help integration
+	
+11. Miscellaneous
+Allow org.eclipse.pde.runtime.LogView selection based on plugins.xml in bqz container
+Additional tags in parser for commanPlugin
+
+12. Backend:	
+sdkjniadapter.dll	"Updated sdkjniadapter dll 
+1)Added function ProgramDataFlash
+2)Updated GetDeviceSegmentData & WriteMemorytoSrec with the new paramenter versionString
+3)Use calloc while extracting file to buffer
+4)added function GetEV2X00Name
+5)ExtractFileToBuffer getting junk characters in buffer. This is affecting all XML parsers. Added workaround to ignore everything towards end."
+
+Baseline version v1.2.0
+
+bqSBB Version 1.2.1 Release Notes.
+
+Targets Supported
+-----------------
+bq28z610
+bq40z451
+bq40z600
+bq40z695
+bq40z795A
+
+Supported OS
+--------------
+Windows7 32/64 bit and Windows XP
+
+Connectors Supported
+---------------------
+EV2300 and EV2400
+
+Software Requirements
+----------------------
+* Java Runtime Environment 1.6 - Part of bqSBB Installer
+* Visual Studio 2010 Redistributable package  - Part of bqSBB Installer
+* EV2X00 Drivers
+
+Highlights 
+-----------
+* Added support for srec programming of bq40z795A
+
+Known Issues/limitations
+---------------------------
+
+1.Installer: 
+	1) Installing without uninstalling the old installation will add the plugins to the 
+		existing installation as new ones will have a different timestamp compared to the existing ones.
+		however the tool will pickup the latest one. it is recomended to uninstall the existing one & install a new one.
+
+2.General :
+	1) Connect device X – remove and connect device Y – Toolbar doesn’t get updated.
+	2) Some of the features will not work correctly if Java 1.7 & above is present on the system. (Java 1.6 is recommended)
+
+3.Registers 
+	1) clicking on sbs-item brings up a pop-up which can get hidden behind other windows based on location.
+	2) "Date" is missing in log file header.
+	3)Logging/Scanning starts even if no items are selected, however only the timestamp would be logged.
+	4)Logging & Scanning at the same time might interfere & timestamps in the log might vary.	  
+	5)Closing the registers view when logging doesnt release the file handle, thus doesnt allow to delete the file manually. closing the application will release the file handle	
+
+4.AdvanceCOMI2C: 
+	1) the transaction log show special characters when the no. of bytes to be read is more than 8.
+
+5.Firmware: 
+	1) sometimes the error message "command channel not found" is shown on the status line. restarting the app will solve this.
+	
+6.DashBoard : 
+	1) There is no easy indication if the dashboard thread is running or not.
+
+7.Datalog : 
+	1) Add All register or DF Items might not display the table column headers correctly, will show some special characters, will be very slow.
+	2) DF view needs to be opened before adding the DF items to the data log
+	3) DF items with same parameterName (e.g. OCC1.threshold and OCC2.threshold) cannot be identified correctly if added on datalog
+	4) During logging if the stop button is pressed, it may take little more time to complete logging and user may observe one or more extra entries in Table after STOP was pressed.
+	5) During logging, if an item is removed, it may result into a crash
+
+8.Datagraph : 
+	1) It is Recommented not to add more than 20 itemson datagraph. More items can make view to freeze and make it unusable.
+	2) The drop down list contains all items in the SBS & DF, hence many of them might not be appropriate for graphing. Ex: manufacturer info, etc..
+	3) DF items with same parameterName (e.g. OCC1.threshold and OCC2.threshold) cannot be identified correctly if added on datagraph
+	
+
+bqSBB v1.2.0 release
+---------------------
+bqSBB Version 1.2.0 Release Notes.
+
+Targets Supported
+-----------------
+bq28z610
+bq40z451
+bq40z600
+bq40z695
+
+Supported OS
+--------------
+Windows7 32/64 bit and Windows XP
+
+Connectors Supported
+---------------------
+EV2300 and EV2400
+
+Software Requirements
+----------------------
+* Java Runtime Environment 1.6 - Part of bqSBB Installer
+* Visual Studio 2010 Redistributable package  - Part of bqSBB Installer
+* EV2X00 Drivers
+
+Highlights 
+-----------
+* Fresh look and feel of bqSBB
+* Added dashboard support which displays status of connection and FW details.
+* Added support for dynamic connection/disconnection on device w/o need for restarting bqSBB.
+* Added support for I2C based device (bq28z610) 
+* Added simple and advanced mode through preferences.
+* Behaviour of Import on DF has changed. It "Writes to device" along with import. (This can be changed through preferences.)
+* Programming functionality moved to new plugin called "Firmware" Also supports automatically entering ROM mode for programming or read-srec.
+* Renamed many of the plugins
+	* SBS is now called Registers
+	* PRO is now Advanced Comm SMB or Advanced Comm I2C.
+* Added new plugins 
+	* Datalog  - to watch various sbs/DF items in table format.
+	* Datagraph - to plot various sbs/DF items against time.
+
+Known Issues/limitations
+---------------------------
+
+1.Installer: 
+	1) Installing without uninstalling the old installation will add the plugins to the 
+		existing installation as new ones will have a different timestamp compared to the existing ones.
+		however the tool will pickup the latest one. it is recomended to uninstall the existing one & install a new one.
+
+2.General :
+	1) Connect device X – remove and connect device Y – Toolbar doesn’t get updated.
+	2) Some of the features will not work correctly if Java 1.7 & above is present on the system. (Java 1.6 is recommended)
+
+3.Registers 
+	1) clicking on sbs-item brings up a pop-up which can get hidden behind other windows based on location.
+	2) "Date" is missing in log file header.
+	3)Logging/Scanning starts even if no items are selected, however only the timestamp would be logged.
+	4)Logging & Scanning at the same time might interfere & timestamps in the log might vary.	  
+	5)Closing the registers view when logging doesnt release the file handle, thus doesnt allow to delete the file manually. closing the application will release the file handle	
+
+4.AdvanceCOMI2C: 
+	1) the transaction log show special characters when the no. of bytes to be read is more than 8.
+
+5.Firmware: 
+	1) sometimes the error message "command channel not found" is shown on the status line. restarting the app will solve this.
+	
+6.DashBoard : 
+	1) There is no easy indication if the dashboard thread is running or not.
+
+7.Datalog : 
+	1) Add All register or DF Items might not display the table column headers correctly, will show some special characters, will be very slow.
+	2) DF view needs to be opened before adding the DF items to the data log
+	3) DF items with same parameterName (e.g. OCC1.threshold and OCC2.threshold) cannot be identified correctly if added on datalog
+	4) During logging if the stop button is pressed, it may take little more time to complete logging and user may observe one or more extra entries in Table after STOP was pressed.
+	5) During logging, if an item is removed, it may result into a crash
+
+8.Datagraph : 
+	1) It is Recommented not to add more than 20 itemson datagraph. More items can make view to freeze and make it unusable.
+	2) The drop down list contains all items in the SBS & DF, hence many of them might not be appropriate for graphing. Ex: manufacturer info, etc..
+	3) DF items with same parameterName (e.g. OCC1.threshold and OCC2.threshold) cannot be identified correctly if added on datagraph
+	
+
+bqSBB Version 1.1.9a Alpha release
+-----------------------------------
+
+1.	Updated bcfgx container
+	a.	Merge with Latest bcfgx (bq28z610_0001a) with fix chem updater issue. 
+2.	bqSBBS
+	a.	SBS performance improvements and access optimizations.
+
+this version of bqSBB is adapted for bq28z610
+*Reads SBS Data
+*Reads Dataflash
+*command can be send using Advance Comm view
+*Programming can done using the firmware view
+*chem programming works
+
+known issues
+Hex dump in data flash doesnt work
+
+
+----------------------------------------
+Recommended minimum system requirements:
+----------------------------------------
+Operating system: Windows 7 Service Pack 1
+CPU: Dual core
+RAM: 4GB
+Disk: >1GB free space, high performance IO
